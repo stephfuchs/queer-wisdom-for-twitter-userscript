@@ -2,7 +2,7 @@
 // @name            Queer wisdom for Twitter
 // @name:de         Queere Weisheiten für Twitter
 // @namespace       stephfuchs.queer.wisdowm.for.twitter
-// @version         0.1.0
+// @version         0.1.1
 // @author          Stephanie Fuchs
 // @description     This script adds an extra button to Twitter, to tweet a queer wisdom randomly.
 // @description:de  Das Skript fügt einen Button zu Twitter, um eine zufällige queere Weisheit zu posten.
@@ -45,7 +45,6 @@
     // run the stuff when document body is loaded
     const wisdom = new QueerWisdomForTwitterUser();
     console.debug('created new wisdom object')
-    console.info('loaded script: "' + wisdom.name + '" with version: ' + wisdom.version);
-    console.info(wisdom.copyright);
+    console.info('loaded script: "' + wisdom.name + '" with version: ' + wisdom.version + '\n' + wisdom.copyright);
     wisdom.init();
 })();
