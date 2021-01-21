@@ -6,11 +6,11 @@
 // @author          Stephanie Fuchs
 // @description     This script adds an extra button to Twitter, to tweet a queer wisdom randomly.
 // @description:de  Das Skript fügt einen Button zu Twitter, um eine zufällige queere Weisheit zu posten.
-// @homepage        https://github.com/stephfuchs
+// @homepage        https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/
 // @include         https://twitter.com/home
 // @run-at          document-body
-// @downloadURL     https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/blob/master/queer-wisdom-for-twitter.user.js
-// @updateURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/blob/master/queer-wisdom-for-twitter.user.js
+// @downloadURL     https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
+// @updateURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
 // @supportURL      https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/issues
 // ==/UserScript==
 
@@ -28,7 +28,7 @@
          * @version 1.0.0
          */
         constructor() {
-            this.version = '0.1.0';
+            this.version = '0.1.1';
             this.name = 'Queer wisdom for Twitter';
             this.copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
         }
