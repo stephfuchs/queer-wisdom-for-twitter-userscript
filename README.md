@@ -2,8 +2,8 @@
 
 See also
 
-- [Changelog](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/CHANGELOG.md)
-- [License](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/LICENSE)
+- [Changelog](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/blob/master/CHANGELOG.md)
+- [License](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/blob/master/LICENSE)
 - [Releases](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/releases)
 
 ## Tampermonkey
