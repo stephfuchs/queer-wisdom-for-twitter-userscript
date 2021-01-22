@@ -17,30 +17,6 @@
     'use strict';
 
     /**
-     * Script to provide the queer wisdom and add it to the tweet-field.
-     */
-    class QueerWisdomForTwitterUser {
-
-        /**
-         * Provide some variables for the the queer wisdom.
-         */
-        constructor() {
-            this.debug = '## Queer wisdom for Twitter debugger ##\n';
-            this.info = '## Queer wisdom for Twitter information ##\n';
-            this.jsonWisdoms = 'https://gist.githubusercontent.com/stephfuchs/4d2c3b88407c29b0672623b8fc519d4c/raw/567a7595c7442294de9a851d70e4d0f71ebc5a6c/tampermonkey-queer-wisdom-for-twitter.json';
-        }
-
-        /**
-         * WORK IN PROGRESS / TO DO
-         */
-        init() {
-            console.info(this.info + 'Let\'s spread a queer wisdom!');
-            console.info(this.info + 'WORK IN PROGESS. Stay tuned.');
-            // todo: auslesen aus JSON vom server, dann kann das im hintergrund immer geupdatet werden, ohne den Code anzupassen.
-        }
-    }
-
-    /**
      * Script to add an extra button to Twitter with a click event.
      */
     class ProvideQueerFlagButton {
@@ -53,39 +29,22 @@
             this.info = '## Queer wisdom for Twitter information ##\n';
             this.queerElement = null;
             this.queerElementId = 'queer_wisdom';
+            this.jsonWisdoms = 'https://gist.githubusercontent.com/stephfuchs/4d2c3b88407c29b0672623b8fc519d4c/raw/567a7595c7442294de9a851d70e4d0f71ebc5a6c/tampermonkey-queer-wisdom-for-twitter.json';
         }
 
         /**
          * Initialization of the script.
          */
         init() {
+            let tweetOptionContainerElement = document.querySelector('.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks');
             console.debug(this.debug + 'Initialization of the script starts.');
-            let twitterElement = this._getTwitterElement();
+            console.debug(this.debug + tweetOptionContainerElement);
+
             this._createQueerElement();
-            twitterElement.append(this._getQueerElement());
+            tweetOptionContainerElement.append(this.queerElement);
             console.debug(this.debug + 'Added lgbtqia+ flag.');
-
-            document.getElementById('queer_wisdom').addEventListener('click', this._onclick);
-            console.debug(this.debug + 'Added onclick binding.');
-            console.debug(this.debug + 'Initialization of the script ended. Have fun.');
-        }
-
-        /**
-         * Get the Twitter element
-         * @returns {Element}
-         * @private
-         */
-        _getTwitterElement() {
-            return document.querySelector('.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks');
-        }
-
-        /**
-         * Getter for class queer element
-         * @returns {null}
-         * @private
-         */
-        _getQueerElement() {
-            return this.queerElement;
+            console.debug(this.debug + tweetOptionContainerElement);
+            console.debug(this.debug + 'Initialization of the script ended.');
         }
 
         /**
@@ -95,12 +54,25 @@
          * @private
          */
         _createQueerElement() {
-            this.queerElement = document.createElement('div');
+            this.queerElement = document.createElement('a');
             this.queerElement.id = this.queerElementId;
             this.queerElement.style.paddingLeft = '10px';
-            this.queerElement.style.cursor = 'pointer';
             this.queerElement.title = 'add a random queer wisdom';
             this.queerElement.innerHTML = this._getFlagSVG();
+            this.queerElement.setAttribute('href', 'https://twitter.com/intent/tweet?text=' + this._getJsonWisdom());
+            console.debug(this.debug + 'Created tweet: https://twitter.com/intent/tweet?text=' + this._getJsonWisdom());
+        }
+
+        /**
+         * Get the wisdom from the JSON.
+         *
+         * @returns {string}
+         * @private
+         */
+        _getJsonWisdom() {
+            // todo
+            console.debug(this.debug + 'Stay tuned. Will be full of queerness soon.');
+            return 'Hello World';
         }
 
         /**
@@ -125,15 +97,6 @@
                 '    <polygon points="-1,0 1912,1905 -1,3810 480,3810 2384,1905 480,0" fill="#613915"/>\n' +
                 '    <polygon points="480,0 960,0 2864,1905 960,3810 480,3810 2384 1905 480,0" fill="#000000"/>\n' +
                 '</svg>';
-        }
-
-        /**
-         * If the flag was clicked get the queer wisdom.
-         * @private
-         */
-        _onclick() {
-            let wisdom = new QueerWisdomForTwitterUser();
-            wisdom.init();
         }
     }
 
