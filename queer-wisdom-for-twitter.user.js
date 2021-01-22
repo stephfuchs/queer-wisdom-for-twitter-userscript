@@ -38,6 +38,7 @@
             console.info(this.info + 'Let\'s spread a queer wisdom!');
             console.info(this.info + 'WORK IN PROGESS. Stay tuned.');
             // todo: auslesen aus JSON vom server, dann kann das im hintergrund immer geupdatet werden, ohne den Code anzupassen.
+            // https://gist.github.com/stephfuchs/b5f1c5e4debc40797cca1d4b1749affd
         }
     }
 
