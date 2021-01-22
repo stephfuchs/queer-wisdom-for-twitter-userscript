@@ -2,7 +2,7 @@
 // @name            Queer wisdom for Twitter
 // @name:de         Queere Weisheiten für Twitter
 // @namespace       stephfuchs.queer.wisdowm.for.twitter
-// @version         0.2.0
+// @version         1.0.0-rc.2
 // @author          Stephanie Fuchs
 // @description     This script adds an extra button to Twitter, to tweet a queer wisdom randomly.
 // @description:de  Das Skript fügt einen Button zu Twitter, um eine zufällige queere Weisheit zu posten.
@@ -122,7 +122,7 @@
      */
     var twitterIsReady = setInterval(function () {
 
-        let version = '0.1.1';
+        let version = '1.0.0-rc.2';
         let name = 'Queer wisdom for Twitter';
         let copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
         let classes = '.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks';
