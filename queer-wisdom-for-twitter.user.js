@@ -44,7 +44,7 @@
     /**
      * Script to add an extra button to Twitter with a click event.
      */
-    class ProvideQueerFlag {
+    class ProvideQueerFlagButton {
 
         /**
          * Provide some variables for the the extra button.
@@ -131,11 +131,11 @@
         if (document.querySelector(classes) !== null || document.querySelector(classes) !== undefined) {
             clearInterval(twitterIsReady);
             console.info('loaded script: "' + name + '" with version: ' + version + '\n' + copyright);
-            const provideQueerFlag = new ProvideQueerFlag();
-            console.debug(provideQueerFlag.debug + 'removed interval');
-            console.debug(provideQueerFlag.debug + 'created new wisdom object');
+            const provideQueerFlagButton = new ProvideQueerFlagButton();
+            console.debug(provideQueerFlagButton.debug + 'removed interval');
+            console.debug(provideQueerFlagButton.debug + 'created new wisdom object');
 
-            provideQueerFlag.init();
+            provideQueerFlagButton.init();
         }
     }, 3000); // check every 3sec
 })();
