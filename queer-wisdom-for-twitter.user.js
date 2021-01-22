@@ -1,15 +1,13 @@
 // ==UserScript==
-// @name            Queer wisdom for Twitter
-// @name:de         Queere Weisheiten für Twitter
+// @name            queer wisdom for Twitter
 // @namespace       stephfuchs.queer.wisdowm.for.twitter
-// @version         1.0.0-rc.2
+// @version         1.0.0-rc.3
 // @author          Stephanie Fuchs
-// @description     This script adds an extra button to Twitter, to tweet a queer wisdom randomly.
-// @description:de  Das Skript fügt einen Button zu Twitter, um eine zufällige queere Weisheit zu posten.
+// @description     The "Queer wisdom for Twitter" script adds a button with a queer flag for the LGBTQIA+ community. By clicking the flag the script will add a random wisdom. There is a list of quotes provided by a JSON file. So the script automatically gets quote-updates. Updates concerning the script are just as features or bugfixing.
 // @homepage        https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/
 // @include         https://twitter.com/*
 // @run-at          document-body
-// @downloadURL     https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
+// @downloadURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
 // @updateURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
 // @supportURL      https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/issues
 // @license	        MIT
@@ -29,6 +27,7 @@
         constructor() {
             this.debug = '## Queer wisdom for Twitter debugger ##\n';
             this.info = '## Queer wisdom for Twitter information ##\n';
+            this.jsonWisdoms = 'https://gist.githubusercontent.com/stephfuchs/4d2c3b88407c29b0672623b8fc519d4c/raw/567a7595c7442294de9a851d70e4d0f71ebc5a6c/tampermonkey-queer-wisdom-for-twitter.json';
         }
 
         /**
@@ -38,7 +37,6 @@
             console.info(this.info + 'Let\'s spread a queer wisdom!');
             console.info(this.info + 'WORK IN PROGESS. Stay tuned.');
             // todo: auslesen aus JSON vom server, dann kann das im hintergrund immer geupdatet werden, ohne den Code anzupassen.
-            // https://gist.github.com/stephfuchs/4d2c3b88407c29b0672623b8fc519d4c
         }
     }
 
@@ -53,6 +51,8 @@
         constructor() {
             this.debug = '## Queer wisdom for Twitter debugger ##\n';
             this.info = '## Queer wisdom for Twitter information ##\n';
+            this.queerElement = null;
+            this.queerElementId = 'queer_wisdom';
         }
 
         /**
@@ -60,8 +60,9 @@
          */
         init() {
             console.debug(this.debug + 'Initialization of the script starts.');
-            let twitterElement = document.querySelector('.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks');
-            twitterElement.append(this._getTwitterButtonHtml());
+            let twitterElement = this._getTwitterElement();
+            this._createQueerElement();
+            twitterElement.append(this._getQueerElement());
             console.debug(this.debug + 'Added lgbtqia+ flag.');
 
             document.getElementById('queer_wisdom').addEventListener('click', this._onclick);
@@ -70,19 +71,36 @@
         }
 
         /**
+         * Get the Twitter element
+         * @returns {Element}
+         * @private
+         */
+        _getTwitterElement() {
+            return document.querySelector('.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks');
+        }
+
+        /**
+         * Getter for class queer element
+         * @returns {null}
+         * @private
+         */
+        _getQueerElement() {
+            return this.queerElement;
+        }
+
+        /**
          * Creates a new div container with the queer flag.
          *
          * @returns {HTMLDivElement}
          * @private
          */
-        _getTwitterButtonHtml() {
-            let queerElement = document.createElement('div');
-            queerElement.id = 'queer_wisdom';
-            queerElement.style.paddingLeft = '10px';
-            queerElement.style.cursor = 'pointer';
-            queerElement.title = 'add a random queer wisdom';
-            queerElement.innerHTML = this._getFlagSVG();
-            return queerElement;
+        _createQueerElement() {
+            this.queerElement = document.createElement('div');
+            this.queerElement.id = this.queerElementId;
+            this.queerElement.style.paddingLeft = '10px';
+            this.queerElement.style.cursor = 'pointer';
+            this.queerElement.title = 'add a random queer wisdom';
+            this.queerElement.innerHTML = this._getFlagSVG();
         }
 
         /**
@@ -120,11 +138,21 @@
     }
 
     /**
+     * Create the Queer button and add it to Twitter.
+     */
+    function create() {
+        const provideQueerFlagButton = new ProvideQueerFlagButton();
+        console.debug(provideQueerFlagButton.debug + 'removed interval');
+        console.debug(provideQueerFlagButton.debug + 'created new wisdom object');
+
+        provideQueerFlagButton.init();
+    }
+
+    /**
      * Run the stuff when document body is loaded
      */
     var twitterIsReady = setInterval(function () {
-
-        let version = '1.0.0-rc.2';
+        let version = '1.0.0-rc.3';
         let name = 'Queer wisdom for Twitter';
         let copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
         let classes = '.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks';
@@ -132,11 +160,20 @@
         if (document.querySelector(classes) !== null || document.querySelector(classes) !== undefined) {
             clearInterval(twitterIsReady);
             console.info('loaded script: "' + name + '" with version: ' + version + '\n' + copyright);
-            const provideQueerFlagButton = new ProvideQueerFlagButton();
-            console.debug(provideQueerFlagButton.debug + 'removed interval');
-            console.debug(provideQueerFlagButton.debug + 'created new wisdom object');
-
-            provideQueerFlagButton.init();
+            create();
         }
     }, 3000); // check every 3sec
+
+
+    /**
+     * Check the system every 5 min whether the button is been missing.
+     */
+    setInterval(function () {
+        if (document.getElementById('queer_wisdom') === null) {
+            console.debug('Button was deleted. Readd starts.');
+            create();
+            console.info('reloaded the queer button');
+            console.debug('Readd ended.');
+        }
+    }, 300000); // check every 5 min
 })();

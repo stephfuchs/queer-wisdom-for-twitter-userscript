@@ -8,6 +8,8 @@ See also
 
 ## [Unreleased]
 
+- add interval to check every 5 min whether the flag was deleted by Twitter (happens some time)
+
 ## [1.0.0-rc.2](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/releases/tag/1.0.0-rc.2)
 
 - add svg and html for the queer flag
