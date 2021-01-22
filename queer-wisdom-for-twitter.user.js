@@ -7,10 +7,10 @@
 // @homepage        https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/
 // @include         https://twitter.com/*
 // @run-at          document-body
-// @downloadURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
+// @downloadURL     https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
 // @updateURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
 // @supportURL      https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/issues
-// @license	        MIT
+// @license         MIT
 // ==/UserScript==
 
 (function () {
