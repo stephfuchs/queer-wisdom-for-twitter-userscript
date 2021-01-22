@@ -8,4 +8,12 @@ See also
 
 ## [Unreleased]
 
+## [1.0.0-rc.2](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/releases/tag/1.0.0-rc.2)
+
+- add svg and html for the queer flag
+- add functionality to add the queer flag to the twitter box
+- add click event for the flag
+
+## [1.0.0-rc.1](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/releases/tag/1.0.0-rc.1)
+
 - initial add of the user script, read me, changelog and license
