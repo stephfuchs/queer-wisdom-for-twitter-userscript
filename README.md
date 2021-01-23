@@ -1,4 +1,6 @@
-# Read me for user script "Queer wisdom for Twitter" for Tampermonkey & Greasemonkey
+# "Queer wisdom for Twitter"
+
+"Queer wisdom for Twitter" for Tampermonkey & Greasemonkey
 
 ## Introduction
 
