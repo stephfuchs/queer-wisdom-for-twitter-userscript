@@ -213,6 +213,10 @@
                     {
                         "quote": "My religion is called Hayley Kiyoko and she is the lesbian jesus.",
                         "copyright": null
+                    },
+                    {
+                        "quote": "This is Damian. He's almost too gay to function.",
+                        "copyright": "Janis \('Mean Girls'\)"
                     }
                 ]
             };
