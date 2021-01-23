@@ -224,6 +224,25 @@
                             "I'm on the right track, baby\n" +
                             "I was born this way",
                         "copyright": "'Born this way' by Lady Gaga"
+                    },
+                    {
+                        "quote": "Oh there ain't no other way\n" +
+                            "Baby I was born this way",
+                        "copyright": "'Born this way' by Lady Gaga"
+                    },
+                    {
+                        "quote": "No matter gay, straight, or bi,\n" +
+                            "Lesbian, transgendered life,\n" +
+                            "I'm on the right track baby,\n" +
+                            "I was born to survive",
+                        "copyright": "'Born this way' by Lady Gaga"
+                    },
+                    {
+                        "quote": "No matter black, white or beige\n" +
+                            "Chola or orient made,\n" +
+                            "I'm on the right track baby,\n" +
+                            "I was born to be brave.",
+                        "copyright": "'Born this way' by Lady Gaga"
                     }
                 ]
             };
