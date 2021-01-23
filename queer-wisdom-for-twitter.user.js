@@ -4,13 +4,13 @@
 // @version         1.0.0
 // @author          Stephanie Fuchs
 // @description     The "Queer wisdom for Twitter" script adds a button with a queer flag for the LGBTQIA+ community. By clicking the flag the script will add a random wisdom. There is a list of quotes provided by a JSON file. So the script automatically gets quote-updates. Updates concerning the script are just as features or bugfixing.
-// @homepage        https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/
+// @homepage        https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript
 // @include         https://twitter.com/home
 // @include         https://twitter.com/intent/*
 // @run-at          document-body
-// @downloadURL     https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
-// @updateURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
-// @supportURL      https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/issues
+// @downloadURL     https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
+// @updateURL       https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
+// @supportURL      https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/issues
 // @license         MIT
 // ==/UserScript==
 
@@ -114,10 +114,10 @@
          * @private
          */
         _getJsonWisdom() {
-            console.info(this.info + 'call Hayley Kiyoko for help.');
+            console.info(this.info + 'We have to call Hayley Kiyoko for help.');
             let girlsLikeGirls = this.lesbianJesus.girlsLikeGirls().wisdoms;
             let wisdomCount = girlsLikeGirls.length;
-            console.info(this.info + 'Answer from Hayley Kiyoko has arrived with ' + wisdomCount + ' wisdoms.');
+            console.info(this.info + 'The answer from Hayley Kiyoko has arrived with ' + wisdomCount + ' wisdoms.');
 
             let random = Math.floor(Math.random() * wisdomCount);
             let hayleyWisdom = girlsLikeGirls[random];
@@ -186,7 +186,7 @@
                     },
                     {
                         "quote": "Did I hit my head and wake up in patriarchal bullshit land?",
-                        "copyright": "Nicole Haught ('Wynonna Earp')"
+                        "copyright": "Nicole Haught \('Wynonna Earp'\)"
                     },
                     {
                         "quote": "Others: \"How do you know, you are queer?\" - Me: \"How do you know you are not?\" ",
@@ -198,7 +198,7 @@
                     },
                     {
                         "quote": "\"Really, I don't know why I did this. I guess it's probably because I've got a big lesbian crush on you! Suck on that! AY-YI-YI-YI-YI-YI!\"",
-                        "copyright": "Janis ('Mean Girls')"
+                        "copyright": "Janis \('Mean Girls'\)"
                     },
                     {
                         "quote": "Hetero people when they see women kissing: \"Oh, they must be good friends\" - Queer women: \"Me n who???\"",
@@ -210,7 +210,11 @@
                     },
                     {
                         "quote": "\"You are a lesbian, not a unicorn, right?\"",
-                        "copyright": "Waverly Earp ('Wynonna Earp')"
+                        "copyright": "Waverly Earp \('Wynonna Earp'\)"
+                    },
+                    {
+                        "quote": "My religion is called Hayley Kiyoko and she is the lesbian jesus.",
+                        "copyright": ""
                     }
                 ]
             };

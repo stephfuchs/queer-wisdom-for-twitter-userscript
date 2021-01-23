@@ -1,10 +1,12 @@
-# Read me for "Tampermonkey script: Queer wisdom for Twitter"
+# Read me for user script "Queer wisdom for Twitter" for Tampermonkey & Greasemonkey
 
 ## Introduction
 
 The "Queer wisdom for Twitter" script adds a button with a queer flag for the LGBTQIA+ community. By clicking the flag
-the script will add a random wisdom. There is a list of quotes provided by a JSON file. So the script automatically gets
-quote-updates. Updates concerning the script are just as features or bugfixing.
+the script the page will reload and display the modal with a random queer wisdom.
+
+If you want to add another quote, just click the flag again, it will randomly generate a new tweet. In some cases you
+will receive the same tweet. that is the fun with random, right?
 
 ## Tampermonkey & Greasemonkey
 
@@ -19,11 +21,11 @@ addon version.
 ### add user script
 
 If the addon is installed, just click on
-"[raw](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js)"
+"[raw](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js)"
 and the extension opens an interface to install the script. Just click "install" to make sure you get the queer stuff.
 
 ## See also
 
-- [Changelog](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/blob/master/CHANGELOG.md)
-- [License](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/blob/master/LICENSE)
-- [Releases](https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/releases)
+- [Changelog](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/blob/master/CHANGELOG.md)
+- [License](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/blob/master/LICENSE)
+- [Releases](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases)
