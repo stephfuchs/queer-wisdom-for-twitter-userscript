@@ -20,6 +20,8 @@ will receive the same tweet. that is the fun with random, right?
 This user script needs an addon for (**latest**) Google Chrome or (**latest**) Firefox web browser. Please always use
 the latest addon version.
 
+There are also merchants: https://openuserjs.org/about/Userscript-Beginners-HOWTO
+
 ### Installing the addon to your webbrowser
 
 - Google Chrome: [Tampermonkey](https://www.tampermonkey.net/)

@@ -11,6 +11,10 @@ See also
 
 ## [1.0.1](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases/tag/1.0.1)
 
+### Changed
+
+- update the README with a link to **openuserjs**.
+
 ### Fixed
 
 - copyright was shown, even it was not available
