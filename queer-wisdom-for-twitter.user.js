@@ -43,7 +43,7 @@
             }, 3000); // check every 3sec
 
             /**
-             * Check the system every 5 min whether the button is been missing.
+             * Check the system every min whether the button is been missing.
              */
             setInterval(function () {
                 if (document.getElementById('queer_wisdom') === null) {
@@ -53,7 +53,7 @@
                     console.info('reloaded the queer button, because it disappeared.');
                     console.debug('Restart finished.');
                 }
-            }, 300000); // check every 5 min
+            }, 60000); // check every minute
         }
     }
 
@@ -124,14 +124,11 @@
             console.debug(this.debug + 'random number: ' + random);
             console.debug(this.debug + 'random wisdom: ' + hayleyWisdom.quote);
 
-            switch (hayleyWisdom) {
-                case hayleyWisdom.copyright === "":
-                    return hayleyWisdom.quote;
-
-                case hayleyWisdom.copyright !== "":
-                default:
-                    return hayleyWisdom.quote + '\n-- ' + hayleyWisdom.copyright;
+            if (hayleyWisdom.copyright === null) {
+                return hayleyWisdom.quote;
             }
+
+            return hayleyWisdom.quote + '\n-- ' + hayleyWisdom.copyright;
         }
 
         /**
@@ -174,15 +171,15 @@
                 "wisdoms": [
                     {
                         "quote": "I am here, I am queer.",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "It's LGBTQIA\+\nL\=lesbian\nG\=gay\nB\=bi\nT\=trans\nQ\=queer\nI\=intersex\nA\=ace\/aro\n\+\=ally",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "There is no man in a wlw relationship. That is the point.",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "Did I hit my head and wake up in patriarchal bullshit land?",
@@ -190,11 +187,11 @@
                     },
                     {
                         "quote": "Others: \"How do you know, you are queer?\" - Me: \"How do you know you are not?\" ",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "When someone tells you they are < insert label >, accept it. They know best, who they are.",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "\"Really, I don't know why I did this. I guess it's probably because I've got a big lesbian crush on you! Suck on that! AY-YI-YI-YI-YI-YI!\"",
@@ -202,11 +199,11 @@
                     },
                     {
                         "quote": "Hetero people when they see women kissing: \"Oh, they must be good friends\" - Queer women: \"Me n who???\"",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "There is no wrong or right about beeing queer. You are who you are and this should be always right.",
-                        "copyright": ""
+                        "copyright": null
                     },
                     {
                         "quote": "\"You are a lesbian, not a unicorn, right?\"",
@@ -214,7 +211,7 @@
                     },
                     {
                         "quote": "My religion is called Hayley Kiyoko and she is the lesbian jesus.",
-                        "copyright": ""
+                        "copyright": null
                     }
                 ]
             };

@@ -9,6 +9,13 @@ See also
 
 ## [Unreleased]
 
+## [1.0.1](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases/tag/1.0.1)
+
+### Fixed
+
+- copyright was shown, even it was not available
+- intervall to check whether the button disappeared was changed to 1min
+
 ## [1.0.0](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases/tag/1.0.0)
 
 ### Added
