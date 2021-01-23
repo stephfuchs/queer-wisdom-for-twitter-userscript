@@ -13,7 +13,7 @@ flag the script the page will reload and display the modal with a random queer w
 If you want to add another quote, just click the flag again, it will randomly generate a new tweet. In some cases you
 will receive the same tweet. that is the fun with random, right?
 
-![Screenshot to show the lgbtqia flag on twitter](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/images/available-lgbtqia-flag.png)
+![Screenshot to show the lgbtqia flag on twitter](./images/available-lgbtqia-flag.png)
 
 ## Tampermonkey & Greasemonkey
 
@@ -32,10 +32,10 @@ If the addon is installed, just click on
 and the extension opens an interface to install the script. Just click "install" to make sure you get the queer stuff.
 
 Click on "raw":
-![Screenshot where to click to get the raw user script data](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/images/add-user-script-via-raw.png)
+![Screenshot where to click to get the raw user script data](./images/add-user-script-via-raw.png)
 
 Install the user script to e.g. Tampermonkey
-![Screenshot where to install via tampermonkey](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/images/add-userscript-in-tampermonkey.png)
+![Screenshot where to install via tampermonkey](./images/add-userscript-in-tampermonkey.png)
 
 ## See also
 
