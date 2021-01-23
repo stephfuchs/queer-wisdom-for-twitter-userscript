@@ -7,6 +7,7 @@
 // @homepage        https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript
 // @include         https://twitter.com/home
 // @include         https://twitter.com/intent/*
+// @include         https://twitter.com/compose/*
 // @run-at          document-body
 // @downloadURL     https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
 // @updateURL       https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
