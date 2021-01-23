@@ -15,10 +15,12 @@ See also
 - add interval to check every 5 min whether the flag was deleted by Twitter (happens some time)
 - add function to create the the tweet link with the wisdom.
 - add Hayley Kiyoko class to define the wisdoms.
+- add screenshots for the README
 
 ### Changed
 
-- changed the flag element from `div` to `a` to make it easier with the random text
+- change the flag element from `div` to `a` to make it easier with the random text
+- update the README
 
 ## [1.0.0-rc.2](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases/tag/1.0.0-rc.2)
 

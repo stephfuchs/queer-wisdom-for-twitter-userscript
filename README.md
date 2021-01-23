@@ -2,8 +2,8 @@
 
 User script for Tampermonkey & Greasemonkey
 
-<span style="color: red; font-weight: bolder">It is recommended to use the latest browser, addon and plugin versions.<
-/span
+<span style="color: red; font-weight: bolder">It is recommended to use the latest browser, addon and plugin
+versions.</span>
 
 ## Introduction
 
