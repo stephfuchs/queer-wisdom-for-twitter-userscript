@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name            queer wisdom for Twitter
 // @namespace       stephfuchs.queer.wisdowm.for.twitter
-// @version         1.0.1
+// @version         1.0.2
 // @author          Stephanie Fuchs
 // @description     The "Queer wisdom for Twitter" script adds a button with a queer flag for the LGBTQIA+ community. By clicking the flag the script will add a random wisdom. There is a list of quotes provided by a JSON file. So the script automatically gets quote-updates. Updates concerning the script are just as features or bugfixing.
 // @homepage        https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript
 // @include         https://twitter.com/home
 // @include         https://twitter.com/intent/*
+// @include         https://twitter.com/compose/*
 // @run-at          document-body
 // @downloadURL     https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
 // @updateURL       https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
@@ -27,7 +28,7 @@
          */
         start() {
             var twitterIsReady = setInterval(function () {
-                let version = '1.0.1';
+                let version = '1.0.2';
                 let name = 'Queer wisdom for Twitter';
                 let copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
                 let classes = '.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks';
@@ -212,6 +213,36 @@
                     {
                         "quote": "My religion is called Hayley Kiyoko and she is the lesbian jesus.",
                         "copyright": null
+                    },
+                    {
+                        "quote": "This is Damian. He's almost too gay to function.",
+                        "copyright": "Janis \('Mean Girls'\)"
+                    },
+                    {
+                        "quote": "I'm beautiful in my way\n" +
+                            "'Cause God makes no mistakes\n" +
+                            "I'm on the right track, baby\n" +
+                            "I was born this way",
+                        "copyright": "'Born this way' by Lady Gaga"
+                    },
+                    {
+                        "quote": "Oh there ain't no other way\n" +
+                            "Baby I was born this way",
+                        "copyright": "'Born this way' by Lady Gaga"
+                    },
+                    {
+                        "quote": "No matter gay, straight, or bi,\n" +
+                            "Lesbian, transgendered life,\n" +
+                            "I'm on the right track baby,\n" +
+                            "I was born to survive",
+                        "copyright": "'Born this way' by Lady Gaga"
+                    },
+                    {
+                        "quote": "No matter black, white or beige\n" +
+                            "Chola or orient made,\n" +
+                            "I'm on the right track baby,\n" +
+                            "I was born to be brave.",
+                        "copyright": "'Born this way' by Lady Gaga"
                     }
                 ]
             };

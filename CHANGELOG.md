@@ -9,6 +9,16 @@ See also
 
 ## [Unreleased]
 
+## [1.1.0](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases/tag/1.1.0)
+
+### Added
+
+- 5 more quotes
+
+### Changed
+
+- add https://twitter.com/compose/ to included pages for the script
+
 ## [1.0.1](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases/tag/1.0.1)
 
 ### Changed
