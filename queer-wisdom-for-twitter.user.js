@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            queer wisdom for Twitter
 // @namespace       stephfuchs.queer.wisdowm.for.twitter
-// @version         1.0.1
+// @version         1.0.2
 // @author          Stephanie Fuchs
 // @description     The "Queer wisdom for Twitter" script adds a button with a queer flag for the LGBTQIA+ community. By clicking the flag the script will add a random wisdom. There is a list of quotes provided by a JSON file. So the script automatically gets quote-updates. Updates concerning the script are just as features or bugfixing.
 // @homepage        https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript
@@ -28,7 +28,7 @@
          */
         start() {
             var twitterIsReady = setInterval(function () {
-                let version = '1.0.1';
+                let version = '1.0.2';
                 let name = 'Queer wisdom for Twitter';
                 let copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
                 let classes = '.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks';
