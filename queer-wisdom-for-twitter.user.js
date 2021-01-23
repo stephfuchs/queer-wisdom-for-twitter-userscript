@@ -217,6 +217,13 @@
                     {
                         "quote": "This is Damian. He's almost too gay to function.",
                         "copyright": "Janis \('Mean Girls'\)"
+                    },
+                    {
+                        "quote": "I'm beautiful in my way\n" +
+                            "'Cause God makes no mistakes\n" +
+                            "I'm on the right track, baby\n" +
+                            "I was born this way",
+                        "copyright": "'Born this way' by Lady Gaga"
                     }
                 ]
             };
