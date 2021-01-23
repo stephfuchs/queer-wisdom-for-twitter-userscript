@@ -5,6 +5,7 @@ See also
 - [Read me](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/blob/master/README.md)
 - [License](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/blob/master/LICENSE)
 - [Releases](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases)
+- [Issue Tracker](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/issues)
 
 ## [Unreleased]
 

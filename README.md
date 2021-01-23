@@ -39,6 +39,7 @@ Install the user script to e.g. Tampermonkey
 
 ## See also
 
+- [Issue Tracker](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/issues)
 - [Changelog](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/blob/master/CHANGELOG.md)
 - [License](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/blob/master/LICENSE)
 - [Releases](https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/releases)
