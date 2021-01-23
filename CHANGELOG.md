@@ -1,4 +1,4 @@
-# Changelog for "Tampermonkey script: Queer wisdom for Twitter"
+# Changelog for "Queer wisdom for Twitter"
 
 See also
 
