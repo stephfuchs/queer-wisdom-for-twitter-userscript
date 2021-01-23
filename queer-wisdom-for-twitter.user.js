@@ -1,49 +1,69 @@
 // ==UserScript==
-// @name            Queer wisdom for Twitter
-// @name:de         Queere Weisheiten für Twitter
+// @name            queer wisdom for Twitter
 // @namespace       stephfuchs.queer.wisdowm.for.twitter
-// @version         1.0.0-rc.2
+// @version         1.0.0
 // @author          Stephanie Fuchs
-// @description     This script adds an extra button to Twitter, to tweet a queer wisdom randomly.
-// @description:de  Das Skript fügt einen Button zu Twitter, um eine zufällige queere Weisheit zu posten.
-// @homepage        https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/
-// @include         https://twitter.com/*
+// @description     The "Queer wisdom for Twitter" script adds a button with a queer flag for the LGBTQIA+ community. By clicking the flag the script will add a random wisdom. There is a list of quotes provided by a JSON file. So the script automatically gets quote-updates. Updates concerning the script are just as features or bugfixing.
+// @homepage        https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript
+// @include         https://twitter.com/home
+// @include         https://twitter.com/intent/*
 // @run-at          document-body
-// @downloadURL     https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
-// @updateURL       https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/raw/master/queer-wisdom-for-twitter.user.js
-// @supportURL      https://github.com/stephfuchs/tampermonkey-queer-wisdom-for-twitter/issues
-// @license	        MIT
+// @downloadURL     https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
+// @updateURL       https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/raw/master/queer-wisdom-for-twitter.user.js
+// @supportURL      https://github.com/stephfuchs/queer-wisdom-for-twitter-userscript/issues
+// @license         MIT
 // ==/UserScript==
 
 (function () {
     'use strict';
 
     /**
-     * Script to provide the queer wisdom and add it to the tweet-field.
+     * Start the plugin stuff to tweet queer stuff.
      */
-    class QueerWisdomForTwitterUser {
+    class Plugin {
 
         /**
-         * Provide some variables for the the queer wisdom.
+         * Run the stuff when document body is loaded
          */
-        constructor() {
-            this.debug = '## Queer wisdom for Twitter debugger ##\n';
-            this.info = '## Queer wisdom for Twitter information ##\n';
-        }
+        start() {
+            var twitterIsReady = setInterval(function () {
+                let version = '1.0.0';
+                let name = 'Queer wisdom for Twitter';
+                let copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
+                let classes = '.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks';
 
-        /**
-         * WORK IN PROGRESS / TO DO
-         */
-        init() {
-            console.info(this.info + 'Let\'s spread a queer wisdom!');
-            console.info(this.info + 'WORK IN PROGESS. Stay tuned.');
+                if (document.querySelector(classes) !== null || document.querySelector(classes) !== undefined) {
+                    let wisdom = new QueerWisdom();
+                    console.info('loaded script: "' + name + '" with version: ' + version + '\n' + copyright);
+                    clearInterval(twitterIsReady);
+                    console.debug(wisdom.debug + 'removed interval');
+                    wisdom.init();
+                    console.debug(wisdom.debug + 'created new wisdom object');
+                }
+            }, 3000); // check every 3sec
+
+            /**
+             * Check the system every 5 min whether the button is been missing.
+             */
+            setInterval(function () {
+                if (document.getElementById('queer_wisdom') === null) {
+                    console.debug('Button was deleted. Restarts.');
+                    let wisdom = new QueerWisdom();
+                    wisdom.init();
+                    console.info('reloaded the queer button, because it disappeared.');
+                    console.debug('Restart finished.');
+                }
+            }, 300000); // check every 5 min
         }
     }
 
+    var plugin = new Plugin();
+    plugin.start();
+
     /**
-     * Script to add an extra button to Twitter with a click event.
+     * Make the queer wisdom great again.
      */
-    class ProvideQueerFlag {
+    class QueerWisdom {
 
         /**
          * Provide some variables for the the extra button.
@@ -51,20 +71,24 @@
         constructor() {
             this.debug = '## Queer wisdom for Twitter debugger ##\n';
             this.info = '## Queer wisdom for Twitter information ##\n';
+            this.queerElement = null;
+            this.queerElementId = 'queer_wisdom';
+            this.lesbianJesus = new HayleyKiyoko();
         }
 
         /**
          * Initialization of the script.
          */
         init() {
+            let tweetOptionContainerElement = document.querySelector('.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks');
             console.debug(this.debug + 'Initialization of the script starts.');
-            let twitterElement = document.querySelector('.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks');
-            twitterElement.append(this._getTwitterButtonHtml());
-            console.debug(this.debug + 'Added lgbtqia+ flag.');
+            console.debug(this.debug + tweetOptionContainerElement);
 
-            document.getElementById('queer_wisdom').addEventListener('click', this._onclick);
-            console.debug(this.debug + 'Added onclick binding.');
-            console.debug(this.debug + 'Initialization of the script ended. Have fun.');
+            this._createQueerElement();
+            tweetOptionContainerElement.append(this.queerElement);
+            console.debug(this.debug + 'Added lgbtqia+ flag.');
+            console.debug(this.debug + tweetOptionContainerElement);
+            console.debug(this.debug + 'Initialization of the script ended.');
         }
 
         /**
@@ -73,14 +97,41 @@
          * @returns {HTMLDivElement}
          * @private
          */
-        _getTwitterButtonHtml() {
-            let queerElement = document.createElement('div');
-            queerElement.id = 'queer_wisdom';
-            queerElement.style.paddingLeft = '10px';
-            queerElement.style.cursor = 'pointer';
-            queerElement.title = 'add a random queer wisdom';
-            queerElement.innerHTML = this._getFlagSVG();
-            return queerElement;
+        _createQueerElement() {
+            this.queerElement = document.createElement('a');
+            this.queerElement.id = this.queerElementId;
+            this.queerElement.style.paddingLeft = '10px';
+            this.queerElement.title = 'add a random queer wisdom';
+            this.queerElement.innerHTML = this._getFlagSVG();
+            this.queerElement.setAttribute('href', 'https://twitter.com/intent/tweet?text=' + encodeURI(this._getJsonWisdom()));
+            console.debug(this.debug + 'Created tweet: https://twitter.com/intent/tweet?text=' + encodeURI(this._getJsonWisdom()));
+        }
+
+        /**
+         * Get the wisdom from the JSON.
+         *
+         * @returns {string}
+         * @private
+         */
+        _getJsonWisdom() {
+            console.info(this.info + 'We have to call Hayley Kiyoko for help.');
+            let girlsLikeGirls = this.lesbianJesus.girlsLikeGirls().wisdoms;
+            let wisdomCount = girlsLikeGirls.length;
+            console.info(this.info + 'The answer from Hayley Kiyoko has arrived with ' + wisdomCount + ' wisdoms.');
+
+            let random = Math.floor(Math.random() * wisdomCount);
+            let hayleyWisdom = girlsLikeGirls[random];
+            console.debug(this.debug + 'random number: ' + random);
+            console.debug(this.debug + 'random wisdom: ' + hayleyWisdom.quote);
+
+            switch (hayleyWisdom) {
+                case hayleyWisdom.copyright === "":
+                    return hayleyWisdom.quote;
+
+                case hayleyWisdom.copyright !== "":
+                default:
+                    return hayleyWisdom.quote + '\n-- ' + hayleyWisdom.copyright;
+            }
         }
 
         /**
@@ -106,35 +157,67 @@
                 '    <polygon points="480,0 960,0 2864,1905 960,3810 480,3810 2384 1905 480,0" fill="#000000"/>\n' +
                 '</svg>';
         }
-
-        /**
-         * If the flag was clicked get the queer wisdom.
-         * @private
-         */
-        _onclick() {
-            let wisdom = new QueerWisdomForTwitterUser();
-            wisdom.init();
-        }
     }
 
     /**
-     * Run the stuff when document body is loaded
+     * The class for the lesbian jesus to give us the queer wisdom.
      */
-    var twitterIsReady = setInterval(function () {
+    class HayleyKiyoko {
 
-        let version = '1.0.0-rc.2';
-        let name = 'Queer wisdom for Twitter';
-        let copyright = '(c) 2021 • Stephanie Fuchs • https://github.com/stephfuchs';
-        let classes = '.css-1dbjc4n.r-1awozwy.r-18u37iz.r-156q2ks';
-
-        if (document.querySelector(classes) !== null || document.querySelector(classes) !== undefined) {
-            clearInterval(twitterIsReady);
-            console.info('loaded script: "' + name + '" with version: ' + version + '\n' + copyright);
-            const provideQueerFlag = new ProvideQueerFlag();
-            console.debug(provideQueerFlag.debug + 'removed interval');
-            console.debug(provideQueerFlag.debug + 'created new wisdom object');
-
-            provideQueerFlag.init();
+        /**
+         * It's obvious.
+         *
+         * @returns {JSON}
+         */
+        girlsLikeGirls() {
+            return {
+                "wisdoms": [
+                    {
+                        "quote": "I am here, I am queer.",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "It's LGBTQIA\+\nL\=lesbian\nG\=gay\nB\=bi\nT\=trans\nQ\=queer\nI\=intersex\nA\=ace\/aro\n\+\=ally",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "There is no man in a wlw relationship. That is the point.",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "Did I hit my head and wake up in patriarchal bullshit land?",
+                        "copyright": "Nicole Haught \('Wynonna Earp'\)"
+                    },
+                    {
+                        "quote": "Others: \"How do you know, you are queer?\" - Me: \"How do you know you are not?\" ",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "When someone tells you they are < insert label >, accept it. They know best, who they are.",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "\"Really, I don't know why I did this. I guess it's probably because I've got a big lesbian crush on you! Suck on that! AY-YI-YI-YI-YI-YI!\"",
+                        "copyright": "Janis \('Mean Girls'\)"
+                    },
+                    {
+                        "quote": "Hetero people when they see women kissing: \"Oh, they must be good friends\" - Queer women: \"Me n who???\"",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "There is no wrong or right about beeing queer. You are who you are and this should be always right.",
+                        "copyright": ""
+                    },
+                    {
+                        "quote": "\"You are a lesbian, not a unicorn, right?\"",
+                        "copyright": "Waverly Earp \('Wynonna Earp'\)"
+                    },
+                    {
+                        "quote": "My religion is called Hayley Kiyoko and she is the lesbian jesus.",
+                        "copyright": ""
+                    }
+                ]
+            };
         }
-    }, 3000); // check every 3sec
+    }
 })();
