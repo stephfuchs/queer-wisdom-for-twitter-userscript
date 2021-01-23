@@ -9,6 +9,10 @@ See also
 
 ## [Unreleased]
 
+### Added
+
+- 5 more quotes
+
 ### Changed
 
 - add https://twitter.com/compose/ to included pages for the script
